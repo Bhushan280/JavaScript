@@ -1,0 +1,23 @@
+{
+  "name": "let-us-react",
+  "version": "1.0.0",
+  "description": "Learning React",
+  "main": "App.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Bhushan280/Let-us-React#"
+  },
+  "keywords": [],
+  "author": "Bhushan Chouhan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bhushan280/Let-us-React#issues"
+  },
+  "homepage": "https://github.com/Bhushan280/Let-us-React#readme",
+  "devDependencies": {
+    "parcel": "^2.14.3"
+  }
+}
