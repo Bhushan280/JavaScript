@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini Payment UI</title>
+  <style>
+    button {
+      margin: 10px;
+      padding: 10px 20px;
+      font-size: 16px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Mini Payment Demo</h2>
+
+  <button id="callBtn">Pay with .call()</button>
+  <button id="applyBtn">Pay with .apply()</button>
+  <button id="bindBtn">Pay with .bind() (Delayed)</button>
+
+  <script>
+    // Reusable function
+    function processPayment(amount, currency) {
+      console.log(`${this.name} paid ${amount} ${currency} using ${this.method}`);
+    }
+
+    // User objects
+    const user1 = { name: "Bhushan", method: "UPI" };
+    const user2 = { name: "Kkashi", method: "Credit Card" };
+
+    // Button 1: .call()
+    document.getElementById("callBtn").addEventListener("click", function () {
+      processPayment.call(user1, 500, "INR"); // Immediate
+    });
+
+    // Button 2: .apply()
+    document.getElementById("applyBtn").addEventListener("click", function () {
+      processPayment.apply(user2, [1500, "INR"]); // Immediate
+    });
+
+    // Button 3: .bind() (delayed 2s)
+    document.getElementById("bindBtn").addEventListener("click", function () {
+      const delayedPayment = processPayment.bind(user1, 1000, "INR");
+      console.log("Processing payment in 2 seconds...");
+      setTimeout(delayedPayment, 2000); // Executes after delay
+    });
+  </script>
+
+</body>
+</html>
+
