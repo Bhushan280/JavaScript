@@ -1,19 +1,18 @@
-console.log("Debouncing and Throttling in JavaScript");
-
-// Debouncing
-let counter = 0;
-const getData = () => {
-    console.log("Fetching Data..", counter++);
+function getData(){
+    console.log("hey");
 }
 
-const doSonmething = function (fn, d) {
-    let timer
-    return function () {
-        let context = this, args = arguments;
-        clearTimeout(timer);
+const debounce = function(fn, d) {
+    let timer;
+    return function() {
+        let context = this;
+        let args = arguments;
+        clearTimeout(timer); // cancel previous timer
         timer = setTimeout(() => {
-            getData.apply(context,arguments)
+            fn.apply(context, args); // correct usage
         }, d);
     }
 }
-const betterFunction = doSonmething(getData, 300);
+
+const delay = 250;
+const betterFunction = debounce(getData, delay);

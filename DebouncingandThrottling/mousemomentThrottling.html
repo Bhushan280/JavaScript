@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Throttled Mouse Tracker</title>
+  <style>
+    body { font-family: sans-serif; padding: 2rem; }
+    #coords { font-size: 1.5rem; color: green; }
+  </style>
+</head>
+<body>
+  <h2>Mouse Coordinates (Throttled)</h2>
+  <div id="coords">Move your mouse...</div>
+
+  <script>
+    // Throttle function
+    const throttle = (fn, limit) => {
+      let flag = true;
+      return function () {
+        const context = this;
+        const args = arguments;
+        if (flag) {
+          fn.apply(context, args);
+          flag = false;
+          setTimeout(() => {
+            flag = true;
+          }, limit);
+        }
+      };
+    };
+
+    // Handler to show coordinates
+    const showMouseCoords = (e) => {
+      document.getElementById("coords").textContent = `X: ${e.clientX}, Y: ${e.clientY}`;
+    };
+
+    // Throttle the mousemove event handler
+    const throttledMouseMove = throttle(showMouseCoords, 100); // only fires once every 100ms
+
+    // Attach the event
+    window.addEventListener("mousemove", throttledMouseMove);
+    console.count("Mouse move handler called");
+
+  </script>
+</body>
+</html>
