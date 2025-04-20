@@ -39,6 +39,7 @@ Function.prototype.myApply = function (context, args = []) {
     return result;
 };
 
+/*
 // BIND
 Function.prototype.myBind = function (context, ...args) {
     const originalFunction = this; // Store the original function
@@ -53,6 +54,40 @@ Function.prototype.myBind = function (context, ...args) {
         // The apply() method can be used to pass arguments to a function.
     };
 };
+
+*/
+
+//BIND
+Function.prototype.myBind = function (...args1) {
+    let obj = this;
+    // Check if the first argument is null or undefined
+    params = args.slice(1);
+    // If the first argument is null or undefined, set it to the global object (window in browsers)
+    return function (...args2) {
+        return obj.apply(args1[0], [...params, ...args2])
+        // Call the function with the context and combined arguments
+    }
+}
+// The bind() method creates a new function that, when called, has its this keyword set to the provided value.
+// The bind() method does not execute the function, it simply returns a new function with the specified this value.
+
+
+Function.prototype.myBind2 = function (...args1) {
+    let obj = this;
+    // Check if the first argument is null or undefined
+    let context = args1[0];
+    // If the first argument is null or undefined, set it to the global object (window in browsers)
+    let params = args1.slice(1);
+    // The slice() method returns a shallow copy of a portion of an array into a new array object.
+    return function (...args2) {
+        // Call the function with the context and combined arguments
+        return obj.call(context, ...params, ...args2);
+        // The call() method calls a function with a given this value and arguments provided individually.
+        // The call() method executes the function immediately.
+        // The call() method changes the value of this in the original function.
+    };
+};
+
 
 
 const name1 = {
