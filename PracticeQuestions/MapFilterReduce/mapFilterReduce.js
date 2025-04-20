@@ -27,9 +27,11 @@ const myArray2 = [1, 2, 3, 4, 5];
 //Core Insight: Creates a new array without changing the original.
 //Core Insight: The map method creates a new array populated with the results of calling a provided function on every element in the calling array.
 Array.prototype.myMap = function (callback) {
+  console.log("map call back", callback)
     let result = [];
     for (let i = 0; i < this.length; i++){
-        result.push(callback(this[i], i, this));
+      result.push(callback(this[i], i, this));
+      console.log("map call back", callback)
         // this[i] is the current element
         // i is the index of the current element
         // this is the array itself
