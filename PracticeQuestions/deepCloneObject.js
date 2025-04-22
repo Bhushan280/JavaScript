@@ -19,9 +19,9 @@ function deepClone(obj, seen = new WeakMap()) {
     // Create a new RegExp object with the same source and flags
     // Note: Flags are not directly available on the RegExp instance
     // but can be accessed using the `flags` property in modern JS>
-      return new RegExp(obj.source, obj.flags);
-      // Note: `flags` property is available in modern JS
-      // If you need to support older environments, you can use:
+    return new RegExp(obj.source, obj.flags);
+    // Note: `flags` property is available in modern JS
+    // If you need to support older environments, you can use:
   }
 
   // Handle Arrays or Objects

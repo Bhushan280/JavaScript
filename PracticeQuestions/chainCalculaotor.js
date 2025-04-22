@@ -6,7 +6,7 @@
  * subtraction, and multiplication, supporting method chaining?
  * calculator.add(3).multiply(4).subtract(5).getValue()
  * class Calculator {
- * // write code here
+ *    write code here
  * }
  * const calculator = new Calculator(2);
  * console.log(calculator.add(3).multiply(4).subtract(5).getValue()); //15

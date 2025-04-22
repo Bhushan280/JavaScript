@@ -2,9 +2,7 @@ console.log('EventEmitter');
 class MyEventEmitter {
     constructor() {
         //array of listeners
-        this.__event_listeners = {
-            
-        };
+        this.__event_listeners = { };
         // mapping of event name to listner subscriber 
         //[event] : Subscriber[]
         // this.__event_listeners = new Map();

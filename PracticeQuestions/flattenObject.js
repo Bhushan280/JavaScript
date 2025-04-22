@@ -19,8 +19,14 @@ const user = {
         secondary: null,
     },
     phone: [
-        { type: "home", number: "1234567890" },
-        { type: "work", number: "null" },
+        {
+            type: "home",
+            number: "1234567890"
+        },
+        {
+            type: "work",
+            number: "null"
+        },
     ],
     prefrences: null,
 };
@@ -28,13 +34,17 @@ const user = {
 
 
 const flattenObject = (obj, parentKey = "", result = {}) => {
-    for (const key in obj) {
+    for (const key in obj)
+    {
         const newKey = parentKey ? `${parentKey}.${key}` : key;
         const value = obj[key];
 
-        if (value && typeof value === "object" && !Array.isArray(value)) {
+        if (value && typeof value === "object" && !Array.isArray(value))
+        {
             flattenObject(value, newKey, result);
-        } else if (Array.isArray(value)) {
+        }
+        else if (Array.isArray(value))
+        {
             value.forEach((item, index) => {
                 flattenObject(item, `${newKey}[${index}]`, result);
             });

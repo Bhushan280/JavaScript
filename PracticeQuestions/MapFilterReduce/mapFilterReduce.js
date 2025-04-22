@@ -21,11 +21,15 @@ console.log(sumOfSquares);
 /*
 All polyfills are prototype (or global) extensions—but not all prototype extensions are polyfills.
 A polyfill implements something the ECMAScript spec actually defines; a plain prototype addition could be totally arbitrary.
-
 */
+// pollyfill 
+
+
 const myArray2 = [1, 2, 3, 4, 5];
+
 //Core Insight: Creates a new array without changing the original.
 //Core Insight: The map method creates a new array populated with the results of calling a provided function on every element in the calling array.
+
 Array.prototype.myMap = function (callback) {
   console.log("map call back", callback)
     let result = [];

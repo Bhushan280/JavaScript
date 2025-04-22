@@ -31,9 +31,9 @@ setTimeout(() => {
  fn("Debounced twice");
 },400)
 // output 
+// Hello 
 // Debounced!
 // Debounced twice
-
 
 
 function throttle(fn, limit) {
