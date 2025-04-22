@@ -13,6 +13,9 @@ const task = [
     () => new Promise((resolve) => setTimeout(() => resolve(2), 2000)),
     () => new Promise((resolve, reject) => setTimeout(() => reject(new Error('Error')), 1500)),
     () => new Promise((resolve) => setTimeout(() => resolve(3), 500)),
+    () => new Promise((resolve) => setTimeout(() => resolve(4), 3000)),
+    () => new Promise((resolve, reject) => setTimeout(() => reject(new Error('Error')), 2000))
+    
 ];
 
 const asyncTaskSequentially = async (tasks) => {
