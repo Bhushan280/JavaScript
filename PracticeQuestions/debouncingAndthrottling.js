@@ -1,5 +1,4 @@
 // Implement a debouncing function in JavaScript that delays the execution of a given function until after a specified wait time has passed since the last call.
-
 function debounce(func, delays) {
     let timer;
     return function () {
