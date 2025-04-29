@@ -1,16 +1,16 @@
 function outtest() {
-    var c = 20;
-    function outer(b) {
-        function inner() {
-            console.log(a,b,c);
-        }
-        let a = 10;
-        return inner;
+  var c = 20;
+  function outer(b) {
+    function inner() {
+      console.log(a, b, c);
     }
-    return outer;
+    let a = 10;
+    return inner;
+  }
+  return outer;
 }
 let a = 100;
-var close = (outtest())("hello");
+var close = outtest()('hello');
 close();
 
 // Output: 10 hello 20
@@ -48,3 +48,15 @@ close();
 // 12. Improved Readability: Closures can improve code readability by keeping related functionality together.
 // 13. Avoiding Global Variables: Closures help in avoiding global variables by encapsulating functionality.
 // 14. Reducing Side Effects: Closures help in reducing side effects by encapsulating functionality.
+
+function test() {
+  for (var i = 0; i <= 5; i++) {
+    function close(i) {
+      setTimeout(function () {
+        console.log(i);
+      }, i * 1000);
+    }
+    close(i);
+  }
+}
+test();
