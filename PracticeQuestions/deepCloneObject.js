@@ -1,3 +1,5 @@
+
+
 function deepClone(obj, seen = new WeakMap()) {
   // Base case: return primitives and functions as-is
   if (obj === null || typeof obj !== 'object') {
@@ -10,12 +12,14 @@ function deepClone(obj, seen = new WeakMap()) {
   }
 
   // Handle special built-in types
-  if (obj instanceof Date) { // Handle Date
+  if (obj instanceof Date) {
+    // Handle Date
     // Create a new Date object with the same timestamp
     return new Date(obj);
-  } 
+  }
 
-  if (obj instanceof RegExp) { // Handle RegExp
+  if (obj instanceof RegExp) {
+    // Handle RegExp
     // Create a new RegExp object with the same source and flags
     // Note: Flags are not directly available on the RegExp instance
     // but can be accessed using the `flags` property in modern JS>
@@ -40,17 +44,16 @@ function deepClone(obj, seen = new WeakMap()) {
   return clone;
 }
 
-
 const original = {
   name: 'Alice',
   age: 30,
   address: {
     city: 'Wonderland',
-    country: 'Fantasy'
+    country: 'Fantasy',
   },
   hobbies: ['reading', 'biking'],
   birthDate: new Date(1994, 5, 24),
-  regexTest: /abc/i
+  regexTest: /abc/i,
 };
 
 original.circularRef = original;
